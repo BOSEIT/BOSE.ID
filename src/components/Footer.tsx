@@ -1,70 +1,124 @@
 import Link from 'next/link';
+import { ArrowUpRight, Plus } from 'lucide-react'; // Sisakan icon umum yang aman dari error
 
 export default function Footer() {
   return (
-    <footer className="bg-[#191919] text-white pt-16 pb-8 font-sans">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-12">
+    <footer className="bg-white text-[#191919] pt-16 pb-8 font-sans border-t border-gray-200">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12">
         
-        {/* Atas: Newsletter Signup */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-16 border-b border-gray-800">
-          <div className="max-w-md">
-            <h3 className="text-2xl font-bold mb-2">Sound is Power.</h3>
-            <p className="text-gray-400 text-sm">Subscribe to receive the latest news, product releases, and exclusive offers from Bose.</p>
+        {/* Navigasi Kolom */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 py-10 border-b border-gray-200">
+          
+          {/* Kolom 1: Customer Care */}
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-[13px] text-black mb-2">Customer Care</h4>
+            {/* LINK REPAIR DIARAHKAN KE WEB EXTERNAL */}
+            <a href="https://service.bettersound.id" target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Repair & Replacement</a>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Order Tracking</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Sign In or Join My Bose</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">My Bose Perks</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Register Your Product</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">BoseCare</Link>
+            {/* LINK CONTACT US DIPERBAIKI */}
+            <Link href="/contact-us" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Contact Us</Link>
           </div>
-          <div className="w-full md:w-auto flex gap-4">
-            <input 
-              type="email" 
-              placeholder="Email Address" 
-              className="bg-transparent border-b border-white py-2 w-full md:w-[300px] outline-none focus:border-gray-400 transition text-sm"
-            />
-            <button className="font-bold border-b-2 border-white pb-1 hover:text-gray-400 hover:border-gray-400 transition text-sm">
-              Sign Up
-            </button>
-          </div>
-        </div>
 
-        {/* Tengah: Navigasi Kolom */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
+          {/* Kolom 2: Our company */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-[13px] uppercase tracking-widest mb-2">Shop</h4>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Headphones</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Speakers</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Audio Sunglasses</Link>
+            <h4 className="font-bold text-[13px] text-black mb-2">Our company</h4>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">About Us</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Find a Store</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">ESG</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Careers</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Press Room</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Stories</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Partnerships & Licensing</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline flex items-center justify-between group">
+              Bose Worldwide <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-black" />
+            </Link>
           </div>
+
+          {/* Kolom 3: Offers */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-[13px] uppercase tracking-widest mb-2">Explore</h4>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Stories</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Innovations</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Sustainability</Link>
+            <h4 className="font-bold text-[13px] text-black mb-2">Offers</h4>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Gift Cards</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">ID.me Group Program</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Corporate Gifting</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Partner & Employee Program</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Certified Refurbished</Link>
+            <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline">Trade Up</Link>
           </div>
+
+          {/* Kolom 4: Additional Links */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-[13px] uppercase tracking-widest mb-2">Support</h4>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Contact Us</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Order Status</Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">Product Help</Link>
+             <h4 className="font-bold text-[13px] text-black mb-2">Additional Links</h4>
+             <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline flex items-center justify-between group">
+              Automotive <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-black" />
+             </Link>
+             <Link href="#" className="text-[13px] font-medium text-gray-600 hover:text-black hover:underline flex items-center justify-between group">
+              Reseller Portal <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-black" />
+             </Link>
           </div>
-          <div className="flex flex-col gap-4 text-gray-400">
-             <h4 className="font-bold text-[13px] text-white uppercase tracking-widest mb-2">Follow Us</h4>
-             <div className="flex gap-5 mt-2 items-center">
-                {/* Facebook SVG */}
-                <a href="#" className="hover:text-white"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
-                {/* Twitter (X) SVG */}
-                <a href="#" className="hover:text-white"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                {/* Instagram SVG */}
-                <a href="#" className="hover:text-white"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+
+          {/* Kolom 5: Apps */}
+          <div className="flex flex-col gap-6">
+             <div className="flex items-center gap-4 cursor-pointer group">
+               <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center text-white font-black italic text-xl">B</div>
+               <span className="text-[13px] font-medium text-gray-600 group-hover:text-black hover:underline">Bose app</span>
+             </div>
+             <div className="flex items-center gap-4 cursor-pointer group">
+               <div className="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center text-black"><Plus className="w-6 h-6" strokeWidth={1.5} /></div>
+               <span className="text-[13px] font-medium text-gray-600 group-hover:text-black hover:underline">Bose Connect<br/>App</span>
+             </div>
+             <div className="flex items-center gap-4 cursor-pointer group">
+               <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center flex-col text-white">
+                 <span className="font-black italic leading-none">B</span>
+                 <span className="text-[8px] font-black italic">QCE</span>
+               </div>
+               <span className="text-[13px] font-medium text-gray-600 group-hover:text-black hover:underline">Bose QCE App</span>
              </div>
           </div>
         </div>
 
+        {/* Social Icons (Diganti menggunakan Raw SVG murni yang pasti work) */}
+        <div className="py-8 flex gap-8">
+           {/* Instagram SVG */}
+           <a href="#" className="text-black hover:text-gray-500 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+           </a>
+           {/* Twitter/X SVG */}
+           <a href="#" className="text-black hover:text-gray-500 transition-colors">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+           </a>
+           {/* Facebook SVG */}
+           <a href="#" className="text-black hover:text-gray-500 transition-colors">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+           </a>
+           {/* Youtube SVG */}
+           <a href="#" className="text-black hover:text-gray-500 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.16 1 12 1 12s0 3.84.46 5.58a2.78 2.78 0 0 0 1.94 2C8.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.84 23 12 23 12s0-3.84-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+           </a>
+           {/* TikTok SVG */}
+           <a href="#" className="text-black hover:text-gray-500 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+           </a>
+        </div>
+
         {/* Bawah: Legal & Copyright */}
-        <div className="pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between gap-6 text-[11px] text-gray-500 font-medium">
-          <div className="flex flex-wrap gap-x-6 gap-y-2 uppercase tracking-wider">
-            <Link href="#" className="hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white">Terms of Sale</Link>
-            <Link href="#" className="hover:text-white">Terms of Use</Link>
-            <Link href="#" className="hover:text-white">Cookie Notice</Link>
+        <div className="pt-8 border-t border-gray-200 flex flex-col xl:flex-row gap-4 text-[12px] text-gray-600 font-medium">
+          <p className="whitespace-nowrap">© Bose Corporation 2026</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <Link href="#" className="hover:text-black hover:underline">Sitemap</Link>
+            <Link href="#" className="hover:text-black hover:underline">Legal</Link>
+            <Link href="#" className="hover:text-black hover:underline">Privacy Policy</Link>
+            <Link href="#" className="hover:text-black hover:underline">Accessibility</Link>
+            <Link href="#" className="hover:text-black hover:underline">CA Notice of Collection</Link>
+            <Link href="#" className="hover:text-black hover:underline">Your privacy choices</Link>
+            <Link href="#" className="hover:text-black hover:underline">Cookies Notice</Link>
+            <Link href="#" className="hover:text-black hover:underline">Terms of Sale</Link>
+            <Link href="#" className="hover:text-black hover:underline">Terms of Use</Link>
+            <Link href="#" className="hover:text-black hover:underline">CA Supply Chains Act</Link>
           </div>
-          <p>© Bose Corporation 2026</p>
         </div>
       </div>
     </footer>

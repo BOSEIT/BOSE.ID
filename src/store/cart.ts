@@ -11,10 +11,11 @@ export interface CartItem {
 
 interface CartState {
   cart: CartItem[];
-  isOpen: boolean; // State untuk buka-tutup sidebar
+  isOpen: boolean; // State untuk buka-tutup modal
   toggleCart: () => void;
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void; // <-- TAMBAHAN BARU
   clearCart: () => void;
 }
 
@@ -32,17 +33,22 @@ export const useCartStore = create<CartState>()(
           return {
             cart: state.cart.map((i) => 
               i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-            ),
-            isOpen: true // Otomatis buka cart saat tambah barang
+            )
+            // PERBAIKAN: isOpen: true dihapus agar tidak otomatis buka modal
           };
         }
-        return { cart: [...state.cart, { ...item, quantity: 1 }], isOpen: true };
+        // PERBAIKAN: isOpen: true dihapus
+        return { cart: [...state.cart, { ...item, quantity: 1 }] }; 
       }),
 
-      removeFromCart: (id) => set((state) => ({
+removeFromCart: (id) => set((state) => ({
         cart: state.cart.filter((item) => item.id !== id)
       })),
-
+      updateQuantity: (id, quantity) => set((state) => ({
+        cart: state.cart.map((item) => 
+          item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
+        )
+      })),
       clearCart: () => set({ cart: [] }),
     }),
     { name: 'bose-cart-storage' }

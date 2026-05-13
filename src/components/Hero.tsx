@@ -1,30 +1,70 @@
 import Link from 'next/link';
 
-export default function Hero() {
-  return (
-    <section className="relative w-full h-[85vh] bg-[#f3f3f3] overflow-hidden">
-      {/* Background Image (Gunakan aset Bose yang kamu punya atau placeholder premium) */}
-      <div className="absolute inset-0 flex items-center justify-center">
-         <img 
-            src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=2065&auto=format&fit=crop" 
-            alt="Bose Headphones" 
-            className="w-full h-full object-cover opacity-90"
-         />
-      </div>
+interface HeroProps {
+  data: {
+    heroBadge: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    heroImageUrl: string;
+    heroButtonText: string;
+    heroButtonLink: string;
+  } | null;
+}
 
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black/10">
-        <h2 className="text-white text-[12px] font-bold uppercase tracking-[0.3em] mb-4">New Release</h2>
-        <h1 className="text-white text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-none">
-          QUIETCOMFORT <br/> ULTRA HEADPHONES
-        </h1>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="/shop" className="bg-white text-black py-4 px-10 rounded-full font-bold text-sm hover:bg-gray-200 transition">
-            Shop Now
-          </Link>
-          <Link href="#" className="bg-transparent border border-white text-white py-4 px-10 rounded-full font-bold text-sm hover:bg-white/10 transition">
-            Explore Features
-          </Link>
+export default function Hero({ data }: HeroProps) {
+  if (!data) return null;
+
+  return (
+    <section className="relative w-full h-[85vh] md:h-[95vh] bg-[#131317] overflow-hidden font-sans group">
+      
+      {/* Background Image */}
+      <picture className="absolute inset-0 w-full h-full pointer-events-none">
+        <img 
+          src={data.heroImageUrl} 
+          alt={data.heroTitle} 
+          className="w-full h-full object-cover object-center"
+        />
+      </picture>
+
+      {/* Gradient Overlay (Fokus di Bawah dan KIRI agar teks putih selalu terbaca) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+      {/* --- TEXT CONTENT (Mentok KIRI BAWAH) --- */}
+      <div className="absolute bottom-0 left-0 w-full h-full flex flex-col justify-end">
+        <div className="w-full px-4 md:px-8 lg:px-10 pb-12 md:pb-16 lg:pb-24 flex justify-start">
+          
+          <div className="max-w-xl text-left flex flex-col items-start">
+            {/* Eyebrow (NEW) */}
+            {data.heroBadge && (
+              <p className="text-white text-[13px] font-bold tracking-[0.15em] uppercase mb-4">
+                {data.heroBadge}
+              </p>
+            )}
+
+            {/* Heading Raksasa */}
+            <h1 className="text-white text-5xl md:text-7xl lg:text-[85px] font-black tracking-tighter leading-[0.95] mb-5 uppercase">
+              {data.heroTitle}
+            </h1>
+
+            {/* Subheading */}
+            {data.heroSubtitle && (
+              <p className="text-white text-base md:text-lg lg:text-[20px] font-medium mb-10 leading-snug max-w-lg">
+                {data.heroSubtitle}
+              </p>
+            )}
+
+            {/* CTA Button */}
+            <div>
+              <Link 
+                href={data.heroButtonLink || '/shop'} 
+                className="inline-flex items-center justify-center bg-white text-[#131317] px-8 py-3.5 md:px-10 md:py-4 font-bold text-sm md:text-[15px] uppercase hover:bg-gray-200 transition-all duration-300 shadow-md"
+              >
+                {data.heroButtonText || 'LEARN MORE'}
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
